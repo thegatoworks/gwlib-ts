@@ -12,16 +12,18 @@
 	],
 	"plugins": [
 		"@typescript-eslint",
-		"roblox-ts",
-		"prettier"
+		"roblox-ts"
 	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:roblox-ts/recommended",
-		"plugin:prettier/recommended"
+		"plugin:roblox-ts/recommended"
 	],
 	"rules": {
-		"prettier/prettier": "warn"
+		"no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+		"semi": ["warn", "always"],
+		"quotes": ["error", "double"],
+		"indent": ["warn", 4],
 	}
+
 }
