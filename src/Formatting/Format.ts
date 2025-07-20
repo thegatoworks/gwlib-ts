@@ -79,4 +79,53 @@ export default class Format {
 
         return romanNumeral;
     }
+
+    public static SecondsToTime(sec: number): ITime {
+        const secondsInMinute = 60;
+        const secondsInHour = secondsInMinute * 60;
+        const secondsInDay = secondsInHour * 24;
+        const secondsInWeek = secondsInDay * 7;
+        const secondsInMonth = secondsInDay * 30.44; // average month
+        const secondsInYear = secondsInDay * 365.25; // includes leap years
+
+        const years = math.floor(sec / secondsInYear);
+        sec %= secondsInYear;
+
+        const months = math.floor(sec / secondsInMonth);
+        sec %= secondsInMonth;
+
+        const weeks = math.floor(sec / secondsInWeek);
+        sec %= secondsInWeek;
+
+        const days = math.floor(sec / secondsInDay);
+        sec %= secondsInDay;
+
+        const hours = math.floor(sec / secondsInHour);
+        sec %= secondsInHour;
+
+        const minutes = math.floor(sec / secondsInMinute);
+        const seconds = math.floor(sec % secondsInMinute);
+
+        const result: ITime = { seconds };
+
+        if (minutes > 0) result.minutes = minutes;
+        if (hours > 0) result.hours = hours;
+        if (days > 0) result.days = days;
+        if (weeks > 0) result.weeks = weeks;
+        if (months > 0) result.months = months;
+        if (years > 0) result.years = years;
+
+        return result;
+    }
+}
+
+
+export interface ITime {
+    seconds: number,
+    minutes?: number,
+    hours?: number,
+    days?: number,
+    weeks?: number,
+    months?: number,
+    years?: number
 }
