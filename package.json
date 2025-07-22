@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/gwlib",
+  "name": "@gatoworks/gwlib",
   "version": "1.0.0",
-  "main": "out/init.lua",
+  "main": "out/init.luau",
   "scripts": {
     "build": "rbxtsc",
     "watch": "rbxtsc -w",
@@ -11,7 +11,7 @@
   "author": "@thatgato, @thegatoworks - GitHub",
   "license": "MIT",
   "description": "The GatoWorks library (gwlib) is a general purpose library for developing games with Roblox TypeScript. It provides various utility functions to speed up development.",
-  "types": "out/index.d.ts",
+  "typings": "out/index.d.ts",
   "files": [
     "out",
     "!**/*.tsbuildinfo"
@@ -33,5 +33,13 @@
     "@rbxts/log": "^0.6.3",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegatoworks/gwlib-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thegatoworks/gwlib-ts/issues"
+  },
+  "homepage": "https://github.com/thegatoworks/gwlib-ts#readme"
 }
