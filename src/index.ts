@@ -1,6 +1,4 @@
-import Log, { Logger } from "@rbxts/log";
-import Math from "./Math/Math";
-import Vector from "./Math/Vector";
-import Format from "./Formatting/Format";
 
-export default { Math, Vector, Format };
+export { default as Math } from "./Math/Math";
+export { default as Vector } from "./Math/Vector";
+export { default as Format } from "./Formatting/Format";
