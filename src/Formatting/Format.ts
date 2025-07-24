@@ -82,7 +82,8 @@ export default class Format {
 
     // Only converts up until weeks!
     public static SecondsToTime(sec: number): ITime {
-
+        const isNegative = sec < 0;
+        sec = math.abs(sec);
 
         const secondsInMinute = 60;
         const secondsInHour = secondsInMinute * 60;
@@ -107,12 +108,13 @@ export default class Format {
         if (hours > 0) result.hours = hours;
         if (days > 0) result.days = days;
         if (weeks > 0) result.weeks = weeks;
+        if (isNegative) result.negative = true;
 
         return result;
     }
 
     public static TimeToString(timeInterface: ITime): string {
-        let retString = "";
+        let retString = timeInterface.negative ? "-" : "";
         if (timeInterface.weeks !== undefined && timeInterface.weeks > 0) {retString += timeInterface.weeks + " week(s) ";}
         if (timeInterface.days !== undefined && timeInterface.days > 0) {retString += timeInterface.days + " day(s) ";}
         if (timeInterface.hours !== undefined && timeInterface.hours > 0) {retString += timeInterface.hours + " hour(s) ";}
@@ -129,4 +131,5 @@ export interface ITime {
     hours?: number,
     days?: number,
     weeks?: number,
+    negative?: boolean
 }
