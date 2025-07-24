@@ -29,11 +29,7 @@
     "roblox-ts": "^3.0.0",
     "typescript": "^5.8.3"
   },
-  "dependencies": {
-    "@rbxts/log": "^0.6.3",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.1"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thegatoworks/gwlib-ts.git"
