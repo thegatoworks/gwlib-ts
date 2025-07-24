@@ -80,19 +80,14 @@ export default class Format {
         return romanNumeral;
     }
 
+    // Only converts up until weeks!
     public static SecondsToTime(sec: number): ITime {
+
+
         const secondsInMinute = 60;
         const secondsInHour = secondsInMinute * 60;
         const secondsInDay = secondsInHour * 24;
         const secondsInWeek = secondsInDay * 7;
-        const secondsInMonth = secondsInDay * 30.44; // average month
-        const secondsInYear = secondsInDay * 365.25; // includes leap years
-
-        const years = math.floor(sec / secondsInYear);
-        sec %= secondsInYear;
-
-        const months = math.floor(sec / secondsInMonth);
-        sec %= secondsInMonth;
 
         const weeks = math.floor(sec / secondsInWeek);
         sec %= secondsInWeek;
@@ -112,21 +107,17 @@ export default class Format {
         if (hours > 0) result.hours = hours;
         if (days > 0) result.days = days;
         if (weeks > 0) result.weeks = weeks;
-        if (months > 0) result.months = months;
-        if (years > 0) result.years = years;
 
         return result;
     }
 
     public static TimeToString(timeInterface: ITime): string {
         let retString = "";
-        if (timeInterface.years !== undefined && timeInterface.years > 0) {retString += timeInterface.years + " years(s) ";}
-        if (timeInterface.months !== undefined && timeInterface.months > 0) {retString += timeInterface.months + " months(s) ";}
-        if (timeInterface.weeks !== undefined && timeInterface.weeks > 0) {retString += timeInterface.weeks + " weeks(s) ";}
-        if (timeInterface.days !== undefined && timeInterface.days > 0) {retString += timeInterface.days + " days(s) ";}
-        if (timeInterface.hours !== undefined && timeInterface.hours > 0) {retString += timeInterface.hours + " hours(s) ";}
-        if (timeInterface.minutes !== undefined && timeInterface.minutes > 0) {retString += timeInterface.minutes + " minutes(s) ";}
-        retString += timeInterface.minutes + " second(s) ";
+        if (timeInterface.weeks !== undefined && timeInterface.weeks > 0) {retString += timeInterface.weeks + " week(s) ";}
+        if (timeInterface.days !== undefined && timeInterface.days > 0) {retString += timeInterface.days + " day(s) ";}
+        if (timeInterface.hours !== undefined && timeInterface.hours > 0) {retString += timeInterface.hours + " hour(s) ";}
+        if (timeInterface.minutes !== undefined && timeInterface.minutes > 0) {retString += timeInterface.minutes + " minute(s) ";}
+        retString += timeInterface.seconds + " second(s) ";
         return retString;
     }
 }
@@ -138,6 +129,4 @@ export interface ITime {
     hours?: number,
     days?: number,
     weeks?: number,
-    months?: number,
-    years?: number
 }
