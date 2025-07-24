@@ -120,13 +120,13 @@ export default class Format {
 
     public static TimeToString(timeInterface: ITime): string {
         let retString = "";
-        retString += timeInterface.minutes + "second(s)";
-        if (timeInterface.minutes !== undefined && timeInterface.minutes > 0) {retString += timeInterface.minutes + "minutes(s)";}
-        if (timeInterface.hours !== undefined && timeInterface.hours > 0) {retString += timeInterface.hours + "hours(s)";}
-        if (timeInterface.days !== undefined && timeInterface.days > 0) {retString += timeInterface.days + "days(s)";}
-        if (timeInterface.weeks !== undefined && timeInterface.weeks > 0) {retString += timeInterface.weeks + "weeks(s)";}
-        if (timeInterface.months !== undefined && timeInterface.months > 0) {retString += timeInterface.months + "months(s)";}
-        if (timeInterface.years !== undefined && timeInterface.years > 0) {retString += timeInterface.years + "years(s)";}
+        retString += timeInterface.minutes + " second(s) ";
+        if (timeInterface.minutes !== undefined && timeInterface.minutes > 0) {retString += timeInterface.minutes + " minutes(s) ";}
+        if (timeInterface.hours !== undefined && timeInterface.hours > 0) {retString += timeInterface.hours + " hours(s) ";}
+        if (timeInterface.days !== undefined && timeInterface.days > 0) {retString += timeInterface.days + " days(s) ";}
+        if (timeInterface.weeks !== undefined && timeInterface.weeks > 0) {retString += timeInterface.weeks + " weeks(s) ";}
+        if (timeInterface.months !== undefined && timeInterface.months > 0) {retString += timeInterface.months + " months(s) ";}
+        if (timeInterface.years !== undefined && timeInterface.years > 0) {retString += timeInterface.years + " years(s) ";}
         return retString;
     }
 }
